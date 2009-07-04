@@ -1,0 +1,61 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {
+                paintViewImageChanged = id; 
+                paintViewToolDidChange = id; 
+                paintViewToolWillChange = id; 
+            }; 
+            CLASS = NSObject; 
+            LANGUAGE = ObjC; 
+        }, 
+        {CLASS = UKFloatingWindow; LANGUAGE = ObjC; SUPERCLASS = NSPanel; }, 
+        {
+            ACTIONS = {setTarget = id; }; 
+            CLASS = UKLineSizeView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {target = id; }; 
+            SUPERCLASS = NSView; 
+        }, 
+        {CLASS = UKPaintEraseRectTool; LANGUAGE = ObjC; SUPERCLASS = UKPaintTool; }, 
+        {CLASS = UKPaintEraserTool; LANGUAGE = ObjC; SUPERCLASS = UKPaintTool; }, 
+        {CLASS = UKPaintLassoTool; LANGUAGE = ObjC; SUPERCLASS = UKPaintPathTool; }, 
+        {CLASS = UKPaintLineTool; LANGUAGE = ObjC; SUPERCLASS = UKPaintTool; }, 
+        {CLASS = UKPaintOvalTool; LANGUAGE = ObjC; SUPERCLASS = UKPaintTool; }, 
+        {CLASS = UKPaintPathTool; LANGUAGE = ObjC; SUPERCLASS = UKPaintTool; }, 
+        {CLASS = UKPaintRectTool; LANGUAGE = ObjC; SUPERCLASS = UKPaintTool; }, 
+        {CLASS = UKPaintRoundrectTool; LANGUAGE = ObjC; SUPERCLASS = UKPaintTool; }, 
+        {CLASS = UKPaintSelectTool; LANGUAGE = ObjC; SUPERCLASS = UKPaintTool; }, 
+        {CLASS = UKPaintTextTool; LANGUAGE = ObjC; SUPERCLASS = UKPaintTool; }, 
+        {
+            ACTIONS = {chooseTool = id; }; 
+            CLASS = UKPaintTool; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {owner = UKPaintView; toolButton = NSButton; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {
+                clear = id; 
+                clearMarkersBuffer = id; 
+                clearSelectionBuffer = id; 
+                copy = id; 
+                cut = id; 
+                delete = id; 
+                drawSelectionBuffer = id; 
+                paintToolDidChange = id; 
+                paintToolWillChange = id; 
+                paste = id; 
+                takeLineSizeFromObject = id; 
+                takeToolFromObject = id; 
+            }; 
+            CLASS = UKPaintView; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {currentTool = UKPaintTool; delegate = id; selectionTool = UKPaintTool; }; 
+            SUPERCLASS = NSView; 
+        }, 
+        {CLASS = UKPaintbrushTool; LANGUAGE = ObjC; SUPERCLASS = UKPaintTool; }
+    ); 
+    IBVersion = 1; 
+}

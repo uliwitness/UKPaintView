@@ -1,0 +1,7 @@
+ Ã Why does lasso cut out a thin line gap every time?
+-> Move selection removal and change code into UKPaintView.
+-> Make select tool not revert lasso selections to rectangular when dragging them.
+-> Select tool should also show right-to-left selections during tracking.
+-> Better selection outline that doesn't pulse but instead uses two colors.
+-> Make filled variants of shape tools.
+-> Make text tool auto-resize its bounding box while typing.
