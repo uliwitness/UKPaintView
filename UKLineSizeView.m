@@ -13,7 +13,7 @@
 
 -(id)	initWithFrame: (NSRect)frame
 {
-    if( self = [super initWithFrame:frame] )
+    if(( self = [super initWithFrame:frame] ))
 	{
         floatValue = 1.0;
 		maxValue = 20.0;

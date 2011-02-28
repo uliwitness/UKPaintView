@@ -562,7 +562,7 @@
 }
 
 
--(BOOL)	validateMenuItem: (id <NSMenuItem>)menuItem
+-(BOOL)	validateMenuItem: (NSMenuItem*)menuItem
 {
 	if( [menuItem action] == @selector(undo:) )
 		return [undoManager canUndo];
