@@ -128,16 +128,16 @@
 
 -(void)	drawRect: (NSRect)rect
 {
-    [image drawInRect: rect fromRect: rect operation: NSCompositeSourceAtop fraction: 1.0];
+    [image drawInRect: rect fromRect: rect operation: NSCompositeSourceOver fraction: 1.0];
 	NSRect		selBounds = NSZeroRect;
 	selBounds.size = [floatingSelectionImage size];
 	if( selBounds.size.width > 0 && selBounds.size.height > 0 )
 	{
-		[floatingSelectionImage drawInRect: selectionFrame fromRect: selBounds operation: NSCompositeSourceAtop fraction: 1.0];
+		[floatingSelectionImage drawInRect: selectionFrame fromRect: selBounds operation: NSCompositeSourceOver fraction: 1.0];
 		if( drawSelectionHighlight )
 			[self drawSelectionHighlightAroundPath: selectionPath];
 	}
-    [tempTrackImage drawInRect: rect fromRect: rect operation: NSCompositeSourceAtop fraction: 1.0];
+    [tempTrackImage drawInRect: rect fromRect: rect operation: NSCompositeSourceOver fraction: 1.0];
 }
 
 
@@ -526,11 +526,14 @@
 
 -(BOOL)	acceptsFirstResponder
 {
-	return YES;
+	return (currentTool != nil);
 }
 
 -(BOOL)	becomeFirstResponder
 {
+	if( currentTool == nil )
+		return NO;
+	
 	[[NSColorPanel sharedColorPanel] setShowsAlpha: YES];
 	[[NSColorPanel sharedColorPanel] setColor: lineColor];
 	
