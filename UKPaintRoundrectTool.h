@@ -6,7 +6,7 @@
 //  Copyright (c) 2004 M. Uli Kusterer. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
 #import "UKPaintTool.h"
 
 

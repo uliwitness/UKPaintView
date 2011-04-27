@@ -69,7 +69,11 @@
 	NSDictionary*	selSizeStrAttributes = [NSDictionary dictionaryWithObjectsAndKeys: descFont, NSFontAttributeName, [NSColor selectedTextColor], NSForegroundColorAttributeName, nil];
 	
 	boxBot = botPos.y;
+	#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_2
+	botPos.y += 18.0 +2;
+	#else
 	botPos.y += [descFont defaultLineHeightForFont] +2;
+	#endif
 	[descFont set];
 	
 	// Make sure line samples look like taken out of a line:

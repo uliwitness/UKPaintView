@@ -139,7 +139,11 @@
 		colorName = [[currPanelColor colorUsingColorSpaceName: NSNamedColorSpace] localizedColorNameComponent];
 	
 	NSRect	bgBox = { { 0, 0 }, { 0, 0 } };
+	#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_2
+	bgBox.size.height = 18.0;
+	#else
 	bgBox.size.height = [descFont defaultLineHeightForFont] +SWATCH_BORDER;
+	#endif
 	bgBox.size.width = [self bounds].size.width;
 	
 	[[NSColor controlShadowColor] set];
