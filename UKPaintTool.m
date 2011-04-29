@@ -21,7 +21,7 @@
 
 -(id)			init
 {
-	self = [super init];
+	self = [self initWithPaintView: nil];
 	return self;
 }
 
@@ -35,6 +35,7 @@
 	
 	return self;
 }
+
 
 /* Override this to draw a shape during tracking:
 	The drawings you do in here will be undone before you're called again. */

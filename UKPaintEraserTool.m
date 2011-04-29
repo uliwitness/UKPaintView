@@ -14,7 +14,6 @@
 
 @implementation UKPaintEraserTool
 
-
 void	UKPaintEraserBresenhamPixelProc( float x, float y, void* data )
 {
 	UKPaintEraserTool*	tool = (UKPaintEraserTool*) data;
