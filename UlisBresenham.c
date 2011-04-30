@@ -1,19 +1,29 @@
-/* =============================================================================
-	PROJECT:	Mediator 4
-	
-	FILE:		UlisBresenham.c
-	
-	PURPOSE:	Utility routine that allows computing lines. E.g. to draw
-				shapes that are on a line, hit-testing on a line or whatever.
-	
-	COPYRIGHT:	(c) 2001 by M. Uli Kusterer, all rights reserved.
-	
-	AUTHORS:	UK	-	M. Uli Kusterer <witness@weblayout.com>
-	
-	REVISIONS:
-		2003-11-03	UK	Changed to use float.
-		2001-12-25	UK	Created.
-   ========================================================================== */
+//
+//  UlisBresenham.c
+//  Mediator 4
+//
+//  Created by Uli Kusterer on 2001-12-25
+//  Copyright (c) 2001 Uli Kusterer.
+//
+//	This software is provided 'as-is', without any express or implied
+//	warranty. In no event will the authors be held liable for any damages
+//	arising from the use of this software.
+//
+//	Permission is granted to anyone to use this software for any purpose,
+//	including commercial applications, and to alter it and redistribute it
+//	freely, subject to the following restrictions:
+//
+//	   1. The origin of this software must not be misrepresented; you must not
+//	   claim that you wrote the original software. If you use this software
+//	   in a product, an acknowledgment in the product documentation would be
+//	   appreciated but is not required.
+//
+//	   2. Altered source versions must be plainly marked as such, and must not be
+//	   misrepresented as being the original software.
+//
+//	   3. This notice may not be removed or altered from any source
+//	   distribution.
+//
 
 /* -----------------------------------------------------------------------------
 	Headers:

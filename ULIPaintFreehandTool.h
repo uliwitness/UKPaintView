@@ -1,8 +1,8 @@
 //
-//  NSCursor+Box.h
+//  UKPaintbrushTool.h
 //  UKPaintView
 //
-//  Created by Uli Kusterer on Mon Nov 03 2003.
+//  Created by Uli Kusterer on Fri Oct 31 2003.
 //  Copyright (c) 2003 M. Uli Kusterer. All rights reserved.
 //
 //	This software is provided 'as-is', without any express or implied
@@ -25,13 +25,17 @@
 //	   distribution.
 //
 
+/*
+	A paint tool that draws a rounded freehand line.
+*/
+
 #import <AppKit/AppKit.h>
+#import "ULIPaintTool.h"
 
 
-@interface NSCursor (UKBox)
+@interface ULIPaintFreehandTool : ULIPaintTool
+{
 
-+(id)	boxCursor;
-+(id)	boxCursorOfSize: (NSSize)size;
-+(id)	boxCursorOfSize: (NSSize)size color: (NSColor*)lineColor;
+}
 
 @end

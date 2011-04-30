@@ -1,9 +1,9 @@
 //
-//  NSCursor+Box.h
+//  UKPaintTempRoundrectTool.h
 //  UKPaintView
 //
-//  Created by Uli Kusterer on Mon Nov 03 2003.
-//  Copyright (c) 2003 M. Uli Kusterer. All rights reserved.
+//  Created by Uli Kusterer on Wed Feb 04 2004.
+//  Copyright (c) 2004 M. Uli Kusterer. All rights reserved.
 //
 //	This software is provided 'as-is', without any express or implied
 //	warranty. In no event will the authors be held liable for any damages
@@ -25,13 +25,20 @@
 //	   distribution.
 //
 
+/*
+	A tool that draws a rectangle with rounded corners into a special
+	"disposable" area, not touching the actual image. Whenever a new disposable
+	shape is drawn, the old one is erased. This is useful to highlight what you
+	are currently talking about.
+*/
+
 #import <AppKit/AppKit.h>
+#import "ULIPaintTool.h"
 
 
-@interface NSCursor (UKBox)
+@interface ULIPaintTempRoundrectTool : ULIPaintTool
+{
 
-+(id)	boxCursor;
-+(id)	boxCursorOfSize: (NSSize)size;
-+(id)	boxCursorOfSize: (NSSize)size color: (NSColor*)lineColor;
+}
 
 @end

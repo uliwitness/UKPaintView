@@ -1,8 +1,8 @@
 //
-//  NSCursor+Box.h
+//  UKPaintEraserTool.h
 //  UKPaintView
 //
-//  Created by Uli Kusterer on Mon Nov 03 2003.
+//  Created by Uli Kusterer on Fri Oct 31 2003.
 //  Copyright (c) 2003 M. Uli Kusterer. All rights reserved.
 //
 //	This software is provided 'as-is', without any express or implied
@@ -25,13 +25,18 @@
 //	   distribution.
 //
 
+/*
+	A tool that gives you a little box-shaped cursor the size of the line size
+	which clears everything in that box with transparency.
+*/
+
 #import <AppKit/AppKit.h>
+#import "ULIPaintTool.h"
 
 
-@interface NSCursor (UKBox)
+@interface ULIPaintEraserTool : ULIPaintTool
+{
 
-+(id)	boxCursor;
-+(id)	boxCursorOfSize: (NSSize)size;
-+(id)	boxCursorOfSize: (NSSize)size color: (NSColor*)lineColor;
+}
 
 @end

@@ -1,8 +1,8 @@
 //
-//  NSCursor+Box.h
+//  UKPaintPathTool.h
 //  UKPaintView
 //
-//  Created by Uli Kusterer on Mon Nov 03 2003.
+//  Created by Uli Kusterer on Fri Oct 31 2003.
 //  Copyright (c) 2003 M. Uli Kusterer. All rights reserved.
 //
 //	This software is provided 'as-is', without any express or implied
@@ -25,13 +25,21 @@
 //	   distribution.
 //
 
+/* This tool lets the user draw a path, i.e. an arbitrarily-shaped closed
+	region that is mathematically described and can thus be used for clipping,
+	selection and lots of other useful things. I.e. this is a vector shape.
+	
+	*** THIS IS AN ABSTRACT BASE CLASS ***
+	It draws a line during tracking, but you have to subclass and override to
+	actually save the resulting path somewhere. */
+
 #import <AppKit/AppKit.h>
+#import "ULIPaintTool.h"
 
 
-@interface NSCursor (UKBox)
-
-+(id)	boxCursor;
-+(id)	boxCursorOfSize: (NSSize)size;
-+(id)	boxCursorOfSize: (NSSize)size color: (NSColor*)lineColor;
+@interface ULIPaintPathTool : ULIPaintTool
+{
+	NSBezierPath*		currentPath;
+}
 
 @end

@@ -1,8 +1,8 @@
 //
-//  NSCursor+Box.h
+//  UKPaintLassoTool.h
 //  UKPaintView
 //
-//  Created by Uli Kusterer on Mon Nov 03 2003.
+//  Created by Uli Kusterer on Fri Oct 31 2003.
 //  Copyright (c) 2003 M. Uli Kusterer. All rights reserved.
 //
 //	This software is provided 'as-is', without any express or implied
@@ -25,13 +25,21 @@
 //	   distribution.
 //
 
+/*
+	A tool for selecting an arbitrarily-shaped part of the image. That part will
+	be extracted into the selection buffer and can now be moved around by dragging.
+	When the user clicks outside the selected area, the image is transferred
+	from the selection buffer back into the image, and merged with the image
+	at its new position.
+*/
+
 #import <AppKit/AppKit.h>
+#import "ULIPaintPathTool.h"
 
 
-@interface NSCursor (UKBox)
-
-+(id)	boxCursor;
-+(id)	boxCursorOfSize: (NSSize)size;
-+(id)	boxCursorOfSize: (NSSize)size color: (NSColor*)lineColor;
+@interface ULIPaintSelectionLassoTool : ULIPaintPathTool
+{
+	BOOL	dragNotCreate;
+}
 
 @end

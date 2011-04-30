@@ -1,9 +1,9 @@
 //
-//  NSCursor+Box.h
+//  UKPaintRoundrectTool.h
 //  UKPaintView
 //
-//  Created by Uli Kusterer on Mon Nov 03 2003.
-//  Copyright (c) 2003 M. Uli Kusterer. All rights reserved.
+//  Created by Uli Kusterer on Wed Feb 04 2004.
+//  Copyright (c) 2004 M. Uli Kusterer. All rights reserved.
 //
 //	This software is provided 'as-is', without any express or implied
 //	warranty. In no event will the authors be held liable for any damages
@@ -25,13 +25,19 @@
 //	   distribution.
 //
 
+/*
+	A tool that draws a rectangle with rounded corners.
+*/
+
 #import <AppKit/AppKit.h>
+#import "ULIPaintTool.h"
 
 
-@interface NSCursor (UKBox)
+@interface ULIPaintRoundedRectangleTool : ULIPaintTool
+{
+	CGFloat		mCornerRadius;
+}
 
-+(id)	boxCursor;
-+(id)	boxCursorOfSize: (NSSize)size;
-+(id)	boxCursorOfSize: (NSSize)size color: (NSColor*)lineColor;
+@property (assign) CGFloat		cornerRadius;
 
 @end

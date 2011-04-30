@@ -1,8 +1,8 @@
 //
-//  NSCursor+Box.h
+//  UKPaintEraseRectTool.h
 //  UKPaintView
 //
-//  Created by Uli Kusterer on Mon Nov 03 2003.
+//  Created by Uli Kusterer on Sat Nov 01 2003.
 //  Copyright (c) 2003 M. Uli Kusterer. All rights reserved.
 //
 //	This software is provided 'as-is', without any express or implied
@@ -25,13 +25,18 @@
 //	   distribution.
 //
 
+/*
+	A tool that lets you drag out a rectangle, which will then be replaced
+	with a transparent color, completely obliterating previous drawings in it.
+*/
+
 #import <AppKit/AppKit.h>
+#import "ULIPaintTool.h"
 
 
-@interface NSCursor (UKBox)
+@interface ULIPaintEraseRectTool : ULIPaintTool
+{
 
-+(id)	boxCursor;
-+(id)	boxCursorOfSize: (NSSize)size;
-+(id)	boxCursorOfSize: (NSSize)size color: (NSColor*)lineColor;
+}
 
 @end
