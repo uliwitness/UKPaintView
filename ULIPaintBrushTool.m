@@ -66,7 +66,7 @@ void	ULIPaintbrushBresenhamPixelProc( float x, float y, void* data )
 		CGImageRef			brushCGImage = [mBrushImage CGImageForProposedRect: NULL context: [NSGraphicsContext currentContext] hints: nil];
 		CGContextClipToMask( theContext, theBox, brushCGImage );
 		[[owner lineColor] set];
-		[NSBezierPath fillRect: NSRectFromCGRect(theBox)];
+		NSRectFillUsingOperation( NSRectFromCGRect(theBox), NSCompositeSourceOver );
 	[mTintedBrushImage unlockFocus];
 }
 
@@ -92,13 +92,16 @@ void	ULIPaintbrushBresenhamPixelProc( float x, float y, void* data )
 
 -(NSCursor*)	drawingCursor
 {
+	NSImage*	brushImage = [self tintedBrushImage];
+	if( !brushImage )
+		brushImage = mBrushImage;
 	NSPoint	pos = { 0, 0 };
-	NSSize	brushSize = [mBrushImage size];
+	NSSize	brushSize = [brushImage size];
 	
 	pos.x = truncf(brushSize.width / 2);
 	pos.y = truncf(brushSize.height / 2);
 	
-	return [[[NSCursor alloc] initWithImage: mBrushImage hotSpot: pos] autorelease];
+	return [[[NSCursor alloc] initWithImage: brushImage hotSpot: pos] autorelease];
 }
 
 
