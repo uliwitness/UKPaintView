@@ -64,9 +64,9 @@
 		NSPoint		initialPos = [owner initialPos];
 		box = [self rectFrom: initialPos to: currPos];
 		oldBox = [self rectFrom: initialPos to: *prevPos];
-		
-		[owner drawSelectionHighlightAroundPath: [NSBezierPath bezierPathWithRect: box]];
 	}
+		
+	[owner drawSelectionHighlightAroundPath: [NSBezierPath bezierPathWithRect: box]];
 	
 	[owner selectionHighlightNeedsDisplayForRect: oldBox];
 	[owner selectionHighlightNeedsDisplayForRect: box];
