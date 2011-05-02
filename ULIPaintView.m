@@ -131,10 +131,11 @@
 
 -(void)	drawSelectionHighlightAroundPath: (NSBezierPath*)thePath
 {
-	[[[NSColor keyboardFocusIndicatorColor] colorWithAlphaComponent: selectionAlpha] set];
+	[[[NSColor keyboardFocusIndicatorColor] colorWithAlphaComponent: selectionAlpha] setStroke];
+	[[NSColor clearColor] setFill];
 	[thePath setLineWidth: 3];
 	float		pattern[2] = { 6, 6 };
-	[thePath setLineDash: pattern count: 2 phase: selectionPhase * 12];
+	[thePath setLineDash: pattern count: 2 phase: selectionPhase * 12.0];
 	[thePath stroke];
 }
 
@@ -417,6 +418,8 @@
 
 -(void)	mouseDown: (NSEvent*)event
 {
+	selectionAlpha = 1.0;	// Ensure selection is visible during tracking.
+	
 	NSRect		box = { { 0, 0 }, { 0, 0 } };
 	NSPoint		clickPos = [event locationInWindow];
 		
@@ -454,6 +457,8 @@
 		[NSGraphicsContext restoreGraphicsState];
 	[image unlockFocus];
 	
+	[self setNeedsDisplay: YES];
+	
 	// Tight loop, faster:
 	NSEvent*		currEvt = nil;
 	BOOL			keepGoing = YES;
@@ -479,6 +484,9 @@
 				[self mouseUp: currEvt];
 				keepGoing = NO;
 				break;
+			
+			default:
+				[NSApp sendEvent: currEvt];
 		}
 	}
 
@@ -558,7 +566,10 @@
 	[[NSColorPanel sharedColorPanel] setColor: lineColor];
 	
 	if( !selectionTimer )
+	{
 		selectionTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector:@selector(animateSelection:) userInfo: nil repeats: YES];
+		[[NSRunLoop currentRunLoop] addTimer: selectionTimer forMode: NSEventTrackingRunLoopMode];
+	}
 	
 	return YES;
 }

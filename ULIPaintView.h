@@ -46,8 +46,8 @@
 	NSTrackingRectTag		tempTrackTag;
 	NSRect					selectionFrame;
 	NSBezierPath*			selectionPath;
-	float					selectionAlpha;
-	float					selectionPhase;
+	CGFloat					selectionAlpha;
+	CGFloat					selectionPhase;
 	NSTimer*				selectionTimer;
 	float					selectionTimerDelta;
 	BOOL					drawSelectionHighlight;
