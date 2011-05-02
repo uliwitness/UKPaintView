@@ -57,8 +57,8 @@
 	[[owner lineColor] setStroke];
 	[[owner fillColor] setFill];
 	[NSBezierPath setDefaultLineWidth: [owner lineSize].width];
-	[NSBezierPath strokeRoundRectInRect: box radius: mCornerRadius];
 	[NSBezierPath fillRoundRectInRect: box radius: mCornerRadius];
+	[NSBezierPath strokeRoundRectInRect: box radius: mCornerRadius];
 	
 	box = [self rectWithLineSizeFrom: [owner initialPos] to: currPos];
 	

@@ -44,8 +44,8 @@
 	[[owner fillColor] setFill];
 	[path setLineWidth: [owner lineSize].width];
 	[path appendBezierPathWithOvalInRect: box];
-	[path stroke];
 	[path fill];
+	[path stroke];
 	[path release];
 	
 	box = [self rectWithLineSizeFrom: [owner initialPos] to: currPos];

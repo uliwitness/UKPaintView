@@ -39,8 +39,10 @@
 	NSRect		box = [self rectFrom: [owner initialPos] to: currPos];
 	NSRect		oldBox = [self rectWithLineSizeFrom: [owner initialPos] to: *prevPos];
 	
-	[[owner lineColor] set];
+	[[owner lineColor] setStroke];
+	[[owner fillColor] setFill];
 	[NSBezierPath setDefaultLineWidth: [owner lineSize].width];
+	[NSBezierPath fillRect: box];
 	[NSBezierPath strokeRect: box];
 	
 	box = [self rectWithLineSizeFrom: [owner initialPos] to: currPos];
