@@ -5,3 +5,4 @@
 -> Better selection outline that doesn't pulse but instead uses two colors.
 -> Make filled variants of shape tools.
 -> Make text tool auto-resize its bounding box while typing.
+-> Immediately creating a selection when one already exists seems to nuke the selection buffer.
