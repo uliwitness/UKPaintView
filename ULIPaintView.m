@@ -690,10 +690,15 @@
 
 -(void)	resetCursorRects
 {
-	// +++ FIXME: Should really set selection cursor based on selectionPath, not just selectionFrame.
-	[self addCursorRect:[self bounds] cursor: [currentTool drawingCursor]];
-	if( selectionFrame.size.height != 0 && selectionFrame.size.width != 0 )
-		[self addCursorRect: selectionFrame cursor: [currentTool selectionCursor]];
+	[super resetCursorRects];
+	
+	if( currentTool )
+	{
+		// +++ FIXME: Should really set selection cursor based on selectionPath, not just selectionFrame.
+		[self addCursorRect:[self bounds] cursor: [currentTool drawingCursor]];
+		if( selectionFrame.size.height != 0 && selectionFrame.size.width != 0 )
+			[self addCursorRect: selectionFrame cursor: [currentTool selectionCursor]];
+	}
 }
 
 
