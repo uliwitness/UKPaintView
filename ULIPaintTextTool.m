@@ -101,7 +101,7 @@
 	drawPos.y += 0.5;
 	
 	[textbox lockFocus];
-		textImgRep = [[NSBitmapImageRep alloc] initWithFocusedViewRect: [textbox bounds]];
+		textImgRep = [[[NSBitmapImageRep alloc] initWithFocusedViewRect: [textbox bounds]] autorelease];
 	[textbox unlockFocus];
 	
 	finalImage = [owner image];
