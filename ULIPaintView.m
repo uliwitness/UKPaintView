@@ -31,6 +31,13 @@
 
 @implementation ULIPaintView
 
+static ULIPaintView	*	sCurrentPaintView = nil;
+
++(ULIPaintView*)	currentPaintView
+{
+	return sCurrentPaintView;
+}
+
 -(id)	initWithFrame: (NSRect)frame
 {
     if(( self = [super initWithFrame:frame] ))
@@ -58,6 +65,13 @@
 
 -(void)	dealloc
 {
+	if( sCurrentPaintView == self )
+	{
+		if( [[self delegate] respondsToSelector: @selector(paintViewWillBecomeCurrent:)] )
+			[[self delegate] paintViewWillBecomeCurrent: nil];
+		sCurrentPaintView = nil;
+	}
+	
 	[undoManager release];
 	[image release];
 	[tempTrackImage release];
@@ -571,6 +585,13 @@
 		[[NSRunLoop currentRunLoop] addTimer: selectionTimer forMode: NSEventTrackingRunLoopMode];
 	}
 	
+	if( sCurrentPaintView != self )
+	{
+		if( [[self delegate] respondsToSelector: @selector(paintViewWillBecomeCurrent:)] )
+			[[self delegate] paintViewWillBecomeCurrent: nil];
+		sCurrentPaintView = self;
+	}
+	
 	return YES;
 }
 
@@ -651,6 +672,13 @@
 		[[currentTool toolButton] setState: 1];
 		[[self window] invalidateCursorRectsForView: self];
 		[self paintToolDidChange: self];
+	}
+	
+	if( sCurrentPaintView != self )
+	{
+		if( [[self delegate] respondsToSelector: @selector(paintViewWillBecomeCurrent:)] )
+			[[self delegate] paintViewWillBecomeCurrent: nil];
+		sCurrentPaintView = self;
 	}
 }
 
