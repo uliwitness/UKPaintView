@@ -245,6 +245,9 @@
 	
 	[[self window] invalidateCursorRectsForView: self];
 	[self setNeedsDisplay: YES];
+	
+	if( [delegate respondsToSelector: @selector(paintViewImageDidChange:)] )
+		[delegate paintViewImageDidChange: self];
 }
 
 
@@ -252,6 +255,9 @@
 {
 	[self drawSelectionBuffer: self];	// Merge selection with image again.
 	[self clearSelectionBuffer: self];	// Clear now unneeded selection.
+
+	if( [delegate respondsToSelector: @selector(paintViewImageDidChange:)] )
+		[delegate paintViewImageDidChange: self];
 }
 
 
@@ -260,6 +266,9 @@
 	[self setSelectionFrame: NSZeroRect];
 	[floatingSelectionImage setSize: NSMakeSize(8,8)];
 	[self setNeedsDisplay: YES];
+	
+	if( [delegate respondsToSelector: @selector(paintViewImageDidChange:)] )
+		[delegate paintViewImageDidChange: self];
 }
 
 
