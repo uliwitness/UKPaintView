@@ -259,6 +259,9 @@ static ULIPaintView	*	sCurrentPaintView = nil;
 	
 	[[self window] invalidateCursorRectsForView: self];
 	[self setNeedsDisplay: YES];
+	
+	if( [delegate respondsToSelector: @selector(paintViewImageDidChange:)] )
+		[delegate paintViewImageDidChange: self];
 }
 
 
@@ -266,6 +269,9 @@ static ULIPaintView	*	sCurrentPaintView = nil;
 {
 	[self drawSelectionBuffer: self];	// Merge selection with image again.
 	[self clearSelectionBuffer: self];	// Clear now unneeded selection.
+
+	if( [delegate respondsToSelector: @selector(paintViewImageDidChange:)] )
+		[delegate paintViewImageDidChange: self];
 }
 
 
@@ -274,6 +280,9 @@ static ULIPaintView	*	sCurrentPaintView = nil;
 	[self setSelectionFrame: NSZeroRect];
 	[floatingSelectionImage setSize: NSMakeSize(8,8)];
 	[self setNeedsDisplay: YES];
+	
+	if( [delegate respondsToSelector: @selector(paintViewImageDidChange:)] )
+		[delegate paintViewImageDidChange: self];
 }
 
 
@@ -323,7 +332,7 @@ static ULIPaintView	*	sCurrentPaintView = nil;
 
 
 
-- (void)unselectAll:(id)sender
+- (void)deselectAll:(id)sender
 {
 	[self removeSelection];
 	selectionFrame = NSZeroRect;
@@ -627,7 +636,7 @@ static ULIPaintView	*	sCurrentPaintView = nil;
 		return [[NSPasteboard generalPasteboard] availableTypeFromArray: [NSArray arrayWithObject: NSTIFFPboardType]] != nil;
 	else if( [menuItem action] == @selector(copy:) || [menuItem action] == @selector(cut:)
 			|| [menuItem action] == @selector(delete:) || [menuItem action] == @selector(clear:)
-			|| [menuItem action] == @selector(unselectAll:) )
+			|| [menuItem action] == @selector(deselectAll:) )
 		return selectionFrame.size.height > 0 && selectionFrame.size.width > 0;
 	else if( [menuItem action] == @selector(selectAll:))
 	{
@@ -740,8 +749,6 @@ static ULIPaintView	*	sCurrentPaintView = nil;
 {
 	return undoManager;
 }
-
-
 
 
 -(id<ULIPaintViewDelegate>)	delegate
