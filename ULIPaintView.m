@@ -309,7 +309,7 @@
 
 
 
-- (void)unselectAll:(id)sender
+- (void)deselectAll:(id)sender
 {
 	[self removeSelection];
 	selectionFrame = NSZeroRect;
@@ -606,7 +606,7 @@
 		return [[NSPasteboard generalPasteboard] availableTypeFromArray: [NSArray arrayWithObject: NSTIFFPboardType]] != nil;
 	else if( [menuItem action] == @selector(copy:) || [menuItem action] == @selector(cut:)
 			|| [menuItem action] == @selector(delete:) || [menuItem action] == @selector(clear:)
-			|| [menuItem action] == @selector(unselectAll:) )
+			|| [menuItem action] == @selector(deselectAll:) )
 		return selectionFrame.size.height > 0 && selectionFrame.size.width > 0;
 	else if( [menuItem action] == @selector(selectAll:))
 	{
@@ -707,8 +707,6 @@
 {
 	return undoManager;
 }
-
-
 
 
 -(id<ULIPaintViewDelegate>)	delegate
