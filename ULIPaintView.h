@@ -56,6 +56,8 @@
 	IBOutlet id				delegate;
 }
 
++(ULIPaintView*)	currentPaintView;
+
 -(IBAction)	takeLineSizeFromObject: (id)sender;
 -(IBAction)	takeToolFromObject: (id)sender;
 
@@ -124,6 +126,8 @@
 
 -(void)		paintViewLineColorDidChange: (ULIPaintView*)sender;
 -(void)		paintViewFillColorDidChange: (ULIPaintView*)sender;
+
+-(void)		paintViewWillBecomeCurrent: (ULIPaintView*)sender;
 
 @end
 
