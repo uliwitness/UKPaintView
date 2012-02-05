@@ -27,13 +27,14 @@
 
 #import "ULIPaintPathTool.h"
 #import "ULIPaintView.h"
+#import "UKHelperMacros.h"
 
 
 @implementation ULIPaintPathTool
 
 -(void)	dealloc
 {
-	[currentPath release];
+	DESTROY_DEALLOC(currentPath);
 	
 	[super dealloc];
 }

@@ -27,6 +27,7 @@
 
 #import "ULIPaintView.h"
 #import "ULIPaintTool.h"
+#import "UKHelperMacros.h"
 
 
 @implementation ULIPaintView
@@ -72,14 +73,14 @@ static ULIPaintView	*	sCurrentPaintView = nil;
 		sCurrentPaintView = nil;
 	}
 	
-	[undoManager release];
-	[image release];
-	[tempTrackImage release];
-	[floatingSelectionImage release];
-	[fillColor release];
-	[lineColor release];
+	DESTROY_DEALLOC(undoManager);
+	DESTROY_DEALLOC(image);
+	DESTROY_DEALLOC(tempTrackImage);
+	DESTROY_DEALLOC(floatingSelectionImage);
+	DESTROY_DEALLOC(fillColor);
+	DESTROY_DEALLOC(lineColor);
 	[selectionTimer invalidate];
-	selectionTimer = nil;
+	DESTROY_DEALLOC(selectionTimer);
 	
 	[super dealloc];
 }
@@ -590,7 +591,7 @@ static ULIPaintView	*	sCurrentPaintView = nil;
 	
 	if( !selectionTimer )
 	{
-		selectionTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector:@selector(animateSelection:) userInfo: nil repeats: YES];
+		selectionTimer = [[NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector:@selector(animateSelection:) userInfo: nil repeats: YES] retain];
 		[[NSRunLoop currentRunLoop] addTimer: selectionTimer forMode: NSEventTrackingRunLoopMode];
 	}
 	
@@ -608,7 +609,7 @@ static ULIPaintView	*	sCurrentPaintView = nil;
 -(BOOL)	resignFirstResponder
 {
 	[selectionTimer invalidate];
-	selectionTimer = nil;
+	DESTROY(selectionTimer);
 
 	return YES;
 }

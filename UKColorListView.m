@@ -7,6 +7,7 @@
 //
 
 #import "UKColorListView.h"
+#import "UKHelperMacros.h"
 
 
 @implementation UKColorListView
@@ -55,11 +56,12 @@
 
 -(void)	dealloc
 {
-	[colorList writeToFile: nil];	// Save to default location.
-	[colorList release];
 	[[NSNotificationCenter defaultCenter] removeObserver:self
 					name: NSColorPanelColorDidChangeNotification
 					object: [NSColorPanel sharedColorPanel]];
+	[colorList writeToFile: nil];	// Save to default location.
+	DESTROY_DEALLOC(colorList);
+	
 	[super dealloc];
 }
 
