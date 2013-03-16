@@ -37,7 +37,7 @@
 
 -(id)	initWithPaintView:(ULIPaintView *)pv
 {
-	if(( [super initWithPaintView: pv] ))
+	if(( self = [super initWithPaintView: pv] ))
 	{
 		mCornerRadius = 8;
 	}
