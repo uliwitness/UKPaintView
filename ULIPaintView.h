@@ -53,7 +53,7 @@
 	BOOL					drawSelectionHighlight;
 	IBOutlet ULIPaintTool*	currentTool;
 	IBOutlet ULIPaintTool*	selectionTool;
-	IBOutlet id				delegate;
+	IBOutlet id	<ULIPaintViewDelegate>	delegate;
 }
 
 +(ULIPaintView*)	currentPaintView;
