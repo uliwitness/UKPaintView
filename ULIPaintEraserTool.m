@@ -31,6 +31,10 @@
 #import "UlisBresenham.h"
 
 
+void	UKPaintEraserBresenhamPixelProc( float x, float y, void* data );
+
+
+
 @implementation ULIPaintEraserTool
 
 void	UKPaintEraserBresenhamPixelProc( float x, float y, void* data )

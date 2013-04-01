@@ -149,7 +149,7 @@ static ULIPaintView	*	sCurrentPaintView = nil;
 	[[[NSColor keyboardFocusIndicatorColor] colorWithAlphaComponent: selectionAlpha] setStroke];
 	[[NSColor clearColor] setFill];
 	[thePath setLineWidth: 3];
-	float		pattern[2] = { 6, 6 };
+	CGFloat		pattern[2] = { 6, 6 };
 	[thePath setLineDash: pattern count: 2 phase: selectionPhase * 12.0];
 	[thePath stroke];
 }
@@ -488,7 +488,7 @@ static ULIPaintView	*	sCurrentPaintView = nil;
 	BOOL			keepGoing = YES;
 	while( keepGoing )
 	{
-		int		evtType;
+		NSEventType		evtType;
 		
 		currEvt = [[self window] nextEventMatchingMask: (NSLeftMouseDraggedMask | NSLeftMouseUpMask)
 								untilDate: [NSDate dateWithTimeIntervalSinceNow: 0.001] inMode: NSEventTrackingRunLoopMode

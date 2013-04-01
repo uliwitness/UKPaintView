@@ -117,7 +117,7 @@
 @end
 
 
-@protocol ULIPaintViewDelegate
+@protocol ULIPaintViewDelegate <NSObject>
 
 @optional
 -(void)		paintViewImageDidChange: (ULIPaintView*)sender;
@@ -132,7 +132,7 @@
 @end
 
 
-@protocol UKPaintViewToolProvider
+@protocol UKPaintViewToolProvider <NSObject>
 
 -(ULIPaintTool*)	paintTool;
 

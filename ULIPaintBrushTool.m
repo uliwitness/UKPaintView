@@ -13,6 +13,9 @@
 #import "UKHelperMacros.h"
 
 
+void	ULIPaintbrushBresenhamPixelProc( float x, float y, void* data );
+
+
 @implementation ULIPaintBrushTool
 
 @synthesize brushImage = mBrushImage;
