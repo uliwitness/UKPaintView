@@ -43,6 +43,13 @@
 @end
 
 
+@protocol ULILineSizeViewTarget <NSObject>
+
+-(IBAction)	takeLineSizeFromObject: (id)sender;	// Default action we set
+
+@end
+
+
 @interface ULILineSizeView : NSView
 {
 	float						floatValue;	// Current line size value.

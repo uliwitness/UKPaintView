@@ -180,7 +180,7 @@
 	hitY = (clickPos.y -SWATCH_BORDER) / (swatchBox.size.height +SWATCH_DISTANCE);
 	numXSwatches = ([self bounds].size.width -SWATCH_DISTANCE) / (swatchBox.size.width +SWATCH_DISTANCE);
 	
-	int	clickedIndex = ((hitY * numXSwatches) +hitX);
+	NSUInteger	clickedIndex = ((hitY * numXSwatches) +hitX);
 	if( clickedIndex >= [colorKeyList count] )
 		clickedIndex = [colorKeyList count] -1;
 	currKey = [colorKeyList objectAtIndex: clickedIndex];
