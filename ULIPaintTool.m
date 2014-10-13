@@ -175,7 +175,6 @@
 		NSSize		theSize = [toolButton bounds].size;
 		theSize.width -= 8;
 		theSize.height -= 8;
-		[theIcon setScalesWhenResized: YES];
 		[theIcon setSize: theSize];
 		[toolButton setImage: theIcon];
 	}

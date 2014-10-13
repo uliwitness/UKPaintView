@@ -60,7 +60,7 @@
 	oldBox.origin.y += 5;	// Nudge so we're on tip of arrow.
 	
 	// Paint new marker into tracking buffer: (has been cleared by UKPaintView)
-	[theImg dissolveToPoint: box.origin fraction: 1.0];
+	[theImg drawAtPoint: box.origin fromRect: NSZeroRect operation: NSCompositeSourceAtop fraction: 1.0];
 	
 	// Cause redraw of changed areas:
 	[owner setNeedsDisplayInRect: oldBox];
