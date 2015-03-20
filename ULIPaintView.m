@@ -848,5 +848,19 @@ static ULIPaintView	*	sCurrentPaintView = nil;
 	return initialPos;
 }
 
+
+-(void)	viewDidMoveToWindow
+{
+	[super viewDidMoveToWindow];
+	
+	if( self.window )
+		ASSIGN(undoManager, self.window.undoManager);
+	else
+	{
+		DESTROY(undoManager);
+		undoManager = [[NSUndoManager alloc] init];
+	}
+}
+
 @end
 
