@@ -93,8 +93,8 @@
 		box.origin.x = currPos.x;
 	if( box.origin.y > currPos.y )
 		box.origin.y = currPos.y;
-	box.size.width = abs(currPos.x -prevPos.x) +1;
-	box.size.height = abs(currPos.y -prevPos.y) +1;
+	box.size.width = fabs(currPos.x -prevPos.x) +1;
+	box.size.height = fabs(currPos.y -prevPos.y) +1;
 	
 	return box;
 }
